@@ -1,0 +1,36 @@
+<%- if !@listen_port.empty? and !@listen_addresses.empty? %>
+  listen-on port <%= @listen_port %> { 
+  <%- Array(@listen_addresses).each do |address| %>
+    <%= address %>;
+  <%- end %>
+  };
+<%- end %>
+  
+  directory           "/var/named";
+  dump-file           "/var/named/data/cache_dump.db";
+  statistics-file     "/var/named/data/named_stats.txt";
+  memstatistics-file  "/var/named/data/named_mem_stats.txt";
+
+<%- if !@allow_query.empty? %>
+  allow-query {
+  <%- Array(@allow_query).each do |address| %>
+    <%= address %>;
+  <%- end %>
+  };
+<%- end %>
+
+<%- if @allow_recursion %>
+  recursion yes;
+<%- else %>
+  recursion no;
+<%- end %>
+
+<%- if @enable_dnssec %>
+  dnssec-enable yes;
+  dnssec-validation yes;
+  dnssec-lookaside auto;
+
+  bindkeys-file "/etc/named.iscdlv.key";
+  managed-keys-directory "/var/named/dynamic";
+  pid-file "/run/named/named.pid";
+  session-keyfile "/run/named/session.key";
