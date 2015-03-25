@@ -1,0 +1,10 @@
+name          'puppet-bind'
+version       '0.1.0'
+source        'https://github.com/smithtrevor/puppet-bind'
+author        'smithtrevor'
+license       'Apache 2.0'
+summary       'Install and configure Bind DNS server'
+description   ''
+project_page  'https://github.com/smithtrevor/puppet-bind'
+
+dependency 'puppetlabs/stdlib'

@@ -1,0 +1,15 @@
+  type master;
+  file "<%= @zone_file %>";
+  <%- if Array(@transfer_hosts).length > 0 %>
+  allow-transfer {
+  <%- Array(@transfer_hosts).each do |host| %>
+    <%= host %>;
+  <%- end %>
+  };
+  <%- end %>
+  <%- if @enable_notify %>
+  notify yes;
+  <%- else %>
+  notify no;
+  <%- end %>
+
