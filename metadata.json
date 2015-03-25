@@ -1,12 +1,12 @@
 {
-  "name": "puppet-bind",
+  "name": "smithtrevor-bind",
   "version": "0.0.1",
   "author": "smithtrevor",
   "summary": "Install and configure Bind DNS server",
   "license": "Apache 2.0",
-  "source": "https://github.com/smithtrevor/puppet-bind",
-  "project_page": "https://github.com/smithtrevor/puppet-bind",
-  "issues_url": "https://github.com/smithtrevor/puppet-bind/issues",
+  "source": "https://github.com/smithtrevor/smithtrevor-bind",
+  "project_page": "https://github.com/smithtrevor/smithtrevor-bind",
+  "issues_url": "https://github.com/smithtrevor/smithtrevor-bind/issues",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
