@@ -1,0 +1,6 @@
+<%- if @enable_default_logging %>
+  channel default_debug {
+    file "data/named.run";
+    severity dynamic;
+  };
+<%- end %>

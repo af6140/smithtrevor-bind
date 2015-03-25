@@ -56,10 +56,45 @@ class bind::config {
     content => '};',
   }
 
+  concat::fragment { 'logging_open':
+    ensure  => present,
+    order   => '31',
+    target  => $::bind::named_conf,
+    content => 'logging {',
+  }
+
+  concat::fragment { 'logging_default':
+    ensure  => present,
+    order   => '32',
+    target  => $::bind::named_conf,
+    content => template('bind/default_logging.erb'),
+  }
+
+  concat::fragment { 'logging_close':
+    ensure  => present,
+    order   => '36',
+    target  => $::bind::named_conf,
+    content => '};',
+  }
+  
+  concat::fragment { 'root_hints':
+    ensure  => present,
+    order   => '37',
+    target  => $::bind::named_conf,
+    content => template('bind/root_hints.erb'),
+  }
+
   concat::fragment { 'include_views':
     ensure  => $views_ensure,
     order   => '98',
     target  => $::bind::named_conf,
     content => "include \"${::bind::config_dir}/views.conf\";",
+  }
+
+  concat::fragment { 'default_includes':
+    ensure  => present,
+    order   => '99',
+    target  => $::bind::named_conf,
+    content => template('bind/default_includes.erb'),
   }
 }
