@@ -1,19 +1,19 @@
   type slave;
   file "<%= @zone_file %>";
   masters {
-  <%- Array(@servers).each do |server| %>
+  <%- Array(@servers).each do |server| -%>
     <%= server %>;
-  <%- end %>
+  <%- end -%>
   };
-  <%- if Array(@transfer_hosts).length > 0 %>
+  <%- if Array(@transfer_hosts).length > 0 -%>
   allow-transfer {
-  <%- Array(@transfer_hosts).each do |host| %>
+  <%- Array(@transfer_hosts).each do |host| -%>
     <%= host %>;
-  <%- end %>
+  <%- end -%>
   };
-  <%- end %>
-  <%- if @enable_notify %>
+  <%- end -%>
+  <%- if @enable_notify -%>
   notify yes;
-  <%- else %>
+  <%- else -%>
   notify no;
-  <%- end %>
+  <%- end -%>
