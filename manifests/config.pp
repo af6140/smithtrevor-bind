@@ -21,6 +21,15 @@ class bind::config {
     require => File[$::bind::config_dir],
   }
 
+  concat { "${::bind::config_dir}\acl.conf":
+    ensure  => present,
+    owner   => 'root',
+    group   => $::bind::bind_group,
+    warn    => true,
+    notify  => Service[$::bind::service_name],
+    require => File[$::bind::config_dir],
+  }
+
   $views_ensure = $::bind::enable_views ? {
     true    => present,
     default => absent
