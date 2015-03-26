@@ -49,9 +49,9 @@ class bind::install {
           ]:
     ensure  => directory,
     group   => $::bind::bind_group,
-    owner   => 'root'
+    owner   => 'root',
     mode    => '0750',
-    require => File[$::bind::var_dir]
+    require => File[$::bind::var_dir],
   }
 
 
