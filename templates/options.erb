@@ -5,16 +5,13 @@
   <%- end %>
   };
 <%- end %>
-  
   directory           "/var/named";
   dump-file           "/var/named/data/cache_dump.db";
   statistics-file     "/var/named/data/named_stats.txt";
   memstatistics-file  "/var/named/data/named_mem_stats.txt";
-
 <%- if @version %>
   version "<%= @version.to_s %>";
 <%- end %>
-
 <%- if !@allow_query.empty? %>
   allow-query {
   <%- Array(@allow_query).each do |address| %>
@@ -22,13 +19,11 @@
   <%- end %>
   };
 <%- end %>
-
 <%- if @enable_recursion %>
   recursion yes;
 <%- else %>
   recursion no;
 <%- end %>
-
 <%- if @enable_recursion %>
   <%- if !@allow_recursion.empty? %>
   allow-recursion {
@@ -38,13 +33,11 @@
   };
   <%- end %>
 <%- end %>
-
 <%- if @enable_dnssec %>
   dnssec-enable yes;
   dnssec-validation yes;
   dnssec-lookaside auto;
 <%- end %>
-
   bindkeys-file "/etc/named.iscdlv.key";
   managed-keys-directory "/var/named/dynamic";
   pid-file "/run/named/named.pid";
