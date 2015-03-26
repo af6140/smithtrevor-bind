@@ -11,6 +11,10 @@
   statistics-file     "/var/named/data/named_stats.txt";
   memstatistics-file  "/var/named/data/named_mem_stats.txt";
 
+<%- if @version %>
+  version <%= @version %>;
+<%- end %>
+
 <%- if !@allow_query.empty? %>
   allow-query {
   <%- Array(@allow_query).each do |address| %>
