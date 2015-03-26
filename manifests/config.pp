@@ -20,7 +20,6 @@ class bind::config {
     mode    => '0644',
     warn    => true,
     require => Package[$::bind::package_name],
-    content => template('bind/named.conf.erb'),
     notify  => Service[$::bind::service_name],
   }
 
