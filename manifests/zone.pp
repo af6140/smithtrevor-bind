@@ -74,10 +74,11 @@ define bind::zone (
   }
 
   concat::fragment { "${type}_${domain}_include":
-    ensure  => $include_zone_ensure,
-    target  => $::bind::named_conf,
-    order   => '98',
-    content => "include \"${zone_file}\";",
+    ensure         => $include_zone_ensure,
+    target         => $::bind::named_conf,
+    order          => '98',
+    ensure_newline => true,
+    content        => "include \"${zone_file}\";",
   }
 
 }
