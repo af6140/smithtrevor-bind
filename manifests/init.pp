@@ -25,6 +25,7 @@ class bind (
   $allow_query                  = ['127.0.0.1'],
   $allow_recursion              = ['127.0.0.1'],
   $acl                          = {},
+  $version                      = false,
 ) inherits ::bind::params {
 
   validate_array($v4_listen_addresses)
