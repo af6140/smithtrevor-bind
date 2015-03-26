@@ -15,6 +15,10 @@ class bind::config {
   $listen_port = $::bind::listen_port
   $enable_dnssec = $::bind::enable_dnssec
 
+  Concat {
+    ensure_newline => true,
+  }
+
   concat { $::bind::named_conf:
     ensure  => present,
     mode    => '0644',
@@ -45,10 +49,6 @@ class bind::config {
     group   => $::bind::bind_group,
     notify  => Service[$::bind::service_name],
     require => File[$::bind::config_dir],
-  }
-
-  Concat::Fragment {
-    ensure_newline => true,
   }
 
   concat::fragment { 'include_acl':
