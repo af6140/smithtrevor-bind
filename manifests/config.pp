@@ -48,7 +48,7 @@ class bind::config {
     default => absent
   }
 
-  concat { "${::bind::config_dir}\views.conf":
+  concat { "${::bind::config_dir}/views.conf":
     ensure  => $views_ensure,
     owner   => 'root',
     group   => $::bind::bind_group,
