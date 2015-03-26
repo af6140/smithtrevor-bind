@@ -5,13 +5,12 @@ define bind::zone (
   $create_db      = false,
   $servers        = [],
   $options        = false,
-  $view           = false,
   $enable_notify  = false, 
 ) {
 
   validate_re($type, ['^stub$','^master$','^slave$','^forward$'])
   validate_array($servers)
-  validate_string($domain,$view)
+  validate_string($domain)
   validate_re($ensure,['^present$','^absent$'])
   validate_bool($create_db)
 
