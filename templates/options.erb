@@ -1,43 +1,43 @@
-<%- if !String(@listen_port).empty? and !@listen_addresses.empty? %>
+<%- if !String(@listen_port).empty? and !@listen_addresses.empty? -%>
   listen-on port <%= @listen_port %> { 
-  <%- Array(@listen_addresses).each do |address| %>
+  <%- Array(@listen_addresses).each do |address| -%>
     <%= address %>;
-  <%- end %>
+  <%- end -%>
   };
-<%- end %>
+<%- end -%>
   directory           "/var/named";
   dump-file           "/var/named/data/cache_dump.db";
   statistics-file     "/var/named/data/named_stats.txt";
   memstatistics-file  "/var/named/data/named_mem_stats.txt";
-<%- if @version %>
+<%- if @version -%>
   version "<%= @version.to_s %>";
-<%- end %>
-<%- if !@allow_query.empty? %>
+<%- end -%>
+<%- if !@allow_query.empty? -%>
   allow-query {
-  <%- Array(@allow_query).each do |address| %>
+  <%- Array(@allow_query).each do |address| -%>
     <%= address %>;
-  <%- end %>
+  <%- end -%>
   };
-<%- end %>
-<%- if @enable_recursion %>
+<%- end -%>
+<%- if @enable_recursion -%>
   recursion yes;
-<%- else %>
+<%- else -%>
   recursion no;
-<%- end %>
-<%- if @enable_recursion %>
-  <%- if !@allow_recursion.empty? %>
+<%- end -%>
+<%- if @enable_recursion -%>
+  <%- if !@allow_recursion.empty? -%>
   allow-recursion {
-  <%- Array(@allow_recursion).each do |address| %>
+  <%- Array(@allow_recursion).each do |address| -%>
     <%= address %>;
-  <%- end %>
+  <%- end -%>
   };
-  <%- end %>
-<%- end %>
-<%- if @enable_dnssec %>
+  <%- end -%>
+<%- end -%>
+<%- if @enable_dnssec -%>
   dnssec-enable yes;
   dnssec-validation yes;
   dnssec-lookaside auto;
-<%- end %>
+<%- end -%>
   bindkeys-file "/etc/named.iscdlv.key";
   managed-keys-directory "/var/named/dynamic";
   pid-file "/run/named/named.pid";
