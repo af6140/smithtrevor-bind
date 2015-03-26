@@ -1,6 +1,6 @@
   type forward;
   forwarders {
-  <%- Array(@servers).each do |server| %>
+  <%- Array(@servers).each do |server| -%>
     <%= server %>;
-  <%- end %>
+  <%- end -%>
   };
