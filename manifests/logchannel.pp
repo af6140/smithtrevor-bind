@@ -3,6 +3,8 @@ define bind::logchannel (
   $channel            = false,
   $output_method      = false,
   $output_target      = false,
+  $file_versions      = '1',
+  $file_size          = '5m',
   $severity           = 'dynamic',
   $enable_print_time  = true,
   $log_dir            = $::bind::default_logdir,
@@ -24,6 +26,8 @@ define bind::logchannel (
     'file': {
       $target = "${log_dir}/${output_target}"
       validate_absolute_path($target)
+      validate_re($file_versions, '\d+')
+      validate_re($file_size, '\d+(kKmMgG)')
     }
     'syslog': {
       $target = $output_target
