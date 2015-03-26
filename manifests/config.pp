@@ -51,7 +51,7 @@ class bind::config {
     ensure  => present,
     order   => '1',
     target  => $::bind::named_conf,
-    content => "include ${::bind::config_dir}/acl.conf",
+    content => "include \"${::bind::config_dir}/acl.conf\";",
   }
 
   concat::fragment { 'options_open':
