@@ -12,7 +12,7 @@
   memstatistics-file  "/var/named/data/named_mem_stats.txt";
 
 <%- if @version %>
-  version "<%= @version %>";
+  version "<%= @version.to_s %>";
 <%- end %>
 
 <%- if !@allow_query.empty? %>
