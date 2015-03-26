@@ -1,9 +1,9 @@
   channel <%= @channel %> {
-  <%- if @output_method == 'file' %>
+  <%- if @output_method == 'file' -%>
     file "<%= @target %>" versions <%= @file_versions %> size <%= @file_size %>;
-  <%- elsif @output_method == 'syslog' %>
+  <%- elsif @output_method == 'syslog' -%>
     syslog <%= @target %>;
-  <%- else %>
+  <%- else -%>
     <%= @output_method %>;
-  <%- end %>
+  <%- end -%>
 
