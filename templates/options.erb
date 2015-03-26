@@ -37,6 +37,9 @@
   dnssec-enable yes;
   dnssec-validation yes;
   dnssec-lookaside auto;
+<%- else -%>
+  dnssec-enable no;
+  dnssec-validation no;
 <%- end -%>
   bindkeys-file "/etc/named.iscdlv.key";
   managed-keys-directory "/var/named/dynamic";
