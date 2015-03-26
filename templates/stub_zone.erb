@@ -1,7 +1,7 @@
   type stub;
   file "<%= @zone_file %>";
   masters {
-  <%- Array(@servers).each do |server| %>
+  <%- Array(@servers).each do |server| -%>
     <%= server %>;
-  <%- end %>
+  <%- end -%>
   };

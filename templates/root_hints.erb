@@ -1,6 +1,6 @@
-<%- if @enable_root_hints %>
+<%- if @enable_root_hints -%>
 zone "." IN {
   type hint;
   file "named.ca";
 };
-<%- end %>
+<%- end -%>
