@@ -50,7 +50,7 @@ class bind::install {
     ensure  => directory,
     group   => $::bind::bind_group,
     owner   => 'root',
-    mode    => '0750',
+    mode    => '0770',
     require => File[$::bind::var_dir],
   }
 
