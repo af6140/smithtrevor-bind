@@ -31,10 +31,11 @@ define bind::zone (
   $zone_template = "bind/${type}_zone.erb"
 
   concat { $zone_file :
-    ensure => $ensure,
-    owner  => root,
-    group  => $::bind::bind_group,
-    notify => Exec['bind-reload'],
+    ensure  => $ensure,
+    owner   => root,
+    group   => $::bind::bind_group,
+    notify  => Exec['bind-reload'],
+    require => File["${::bind::config_dir}/zones"],
   }
 
   concat::fragment { "${type}_${domain}_header":

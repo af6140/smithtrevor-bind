@@ -28,7 +28,7 @@ class bind::install {
     require => Package[$::bind::package_name],
   }
 
-  file { "${::bind::config_dir}zones":
+  file { "${::bind::config_dir}/zones":
     ensure  => directory,
     mode    => '0755',
     purge   => true,
