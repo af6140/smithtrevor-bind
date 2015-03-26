@@ -25,6 +25,15 @@
   recursion no;
 <%- end %>
 
+<%- if @enable_recursion %>
+  <%- if !@allow_recursion.empty? %>
+  allow-recursion {
+  <%- Array(@allow_recursion).each do |address| %>
+    <%= address %>;
+  <%- end %>
+  };
+<%- end %>
+
 <%- if @enable_dnssec %>
   dnssec-enable yes;
   dnssec-validation yes;
