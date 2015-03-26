@@ -7,6 +7,7 @@ class bind::config {
   concat { $::bind::named_conf:
     ensure  => present,
     mode    => '0644',
+    warn    => true,
     require => Package[$::bind::package_name],
     content => template('bind/named.conf.erb'),
     notify  => Service[$::bind::service_name],
@@ -21,11 +22,12 @@ class bind::config {
     require => File[$::bind::config_dir],
   }
 
-  concat { "${::bind::config_dir}\acl.conf":
+  file { "${::bind::config_dir}\acl.conf":
     ensure  => present,
     owner   => 'root',
     group   => $::bind::bind_group,
-    warn    => true,
+    mode    => '0644',
+    content => template('bind/acl.erb'),
     notify  => Service[$::bind::service_name],
     require => File[$::bind::config_dir],
   }
@@ -39,7 +41,6 @@ class bind::config {
     ensure  => $views_ensure,
     owner   => 'root',
     group   => $::bind::bind_group,
-    warn    => true,
     notify  => Service[$::bind::service_name],
     require => File[$::bind::config_dir],
   }
