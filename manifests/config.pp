@@ -19,17 +19,9 @@ class bind::config {
     ensure  => present,
     mode    => '0644',
     warn    => true,
+    group   => $::bind::bind_group,
     require => Package[$::bind::package_name],
     notify  => Service[$::bind::service_name],
-  }
-
-  concat { $::bind::named_local_conf:
-    ensure  => present,
-    owner   => 'root',
-    group   => $::bind::bind_group,
-    warn    => true,
-    notify  => Service[$::bind::service_name],
-    require => File[$::bind::config_dir],
   }
 
   file { "${::bind::config_dir}/acl.conf":
