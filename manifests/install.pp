@@ -48,6 +48,8 @@ class bind::install {
             "${::bind::var_dir}/forward"
           ]:
     ensure  => directory,
+    group   => $::bind::bind_group,
+    owner   => 'root'
     mode    => '0750',
     require => File[$::bind::var_dir]
   }
