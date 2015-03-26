@@ -22,6 +22,7 @@ class bind (
   $enable_default_debug_channel = true,
   $v4_listen_addresses          = ['127.0.0.1'],
   $default_logdir               = '/var/log/named',
+  $allow_query                  = ['127.0.0.1'],
 ) inherits ::bind::params {
 
   validate_array($v4_listen_addresses)
