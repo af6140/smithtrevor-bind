@@ -1,5 +1,5 @@
   type master;
-  file "<%= @zone_file %>";
+  file "<%= @db_file %>";
   <%- if Array(@transfer_hosts).length > 0 -%>
   allow-transfer {
   <%- Array(@transfer_hosts).each do |host| -%>
