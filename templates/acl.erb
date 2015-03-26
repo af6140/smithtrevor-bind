@@ -1,0 +1,7 @@
+<%- scope['::bind::acl'].each do |acl,addresses| %>
+  acl <%= acl %> {
+  <%- addresses.each do |address| %>
+    <%= address %>;
+  <%- end %>
+  };
+<%- end %>
