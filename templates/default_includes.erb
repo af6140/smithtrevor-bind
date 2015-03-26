@@ -1,2 +1,3 @@
 include "/etc/named.rfc1912.zones";
 include "/etc/named.root.key";
+include "<%= scope['::bind::config_dir']/acl.conf %>";
