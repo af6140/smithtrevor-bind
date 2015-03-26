@@ -1,4 +1,4 @@
-<%- if !@listen_port.empty? and !@listen_addresses.empty? %>
+<%- if !String(@listen_port).empty? and !@listen_addresses.empty? %>
   listen-on port <%= @listen_port %> { 
   <%- Array(@listen_addresses).each do |address| %>
     <%= address %>;
