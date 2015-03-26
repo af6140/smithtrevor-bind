@@ -4,6 +4,17 @@
 #
 class bind::config {
 
+  #read top level variables into current scope to make templates easier
+  $version = $::bind::version
+  $enable_recursion = $::bind::enable_recursion
+  $config_dir = $::bind::config_dir
+  $enable_root_hints = $::bind::enable_root_hints
+  $allow_query = $::bind::allow_query
+  $allow_recursion = $::bind::allow_recursion
+  $acl = $::bind::acl
+  $listen_port = $::bind::listen_port
+  $enable_dnssec = $::bind::enable_dnssec
+
   concat { $::bind::named_conf:
     ensure  => present,
     mode    => '0644',
