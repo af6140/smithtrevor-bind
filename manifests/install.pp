@@ -8,7 +8,7 @@ class bind::install {
     ensure => present,
   }
 
-  package { $::bind::bind_utils_packaged:
+  package { $::bind::bind_utils_package:
     ensure => present,
   }
 
