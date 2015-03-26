@@ -33,7 +33,7 @@ class bind::config {
     require => File[$::bind::config_dir],
   }
 
-  file { "${::bind::config_dir}\acl.conf":
+  file { "${::bind::config_dir}/acl.conf":
     ensure  => present,
     owner   => 'root',
     group   => $::bind::bind_group,
