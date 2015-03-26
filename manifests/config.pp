@@ -70,6 +70,13 @@ class bind::config {
     content => template('bind/default_debug_channel.erb'),
   }
 
+  concat::fragment { 'logging_categories':
+    ensure  => present,
+    order   => '33',
+    target  => $::bind::named_conf,
+    content => template('bind/logging_categories.erb'),
+  }
+
   concat::fragment { 'logging_close':
     ensure  => present,
     order   => '36',
