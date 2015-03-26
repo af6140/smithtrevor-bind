@@ -42,9 +42,9 @@
   dnssec-enable yes;
   dnssec-validation yes;
   dnssec-lookaside auto;
+<%- end %>
 
   bindkeys-file "/etc/named.iscdlv.key";
   managed-keys-directory "/var/named/dynamic";
   pid-file "/run/named/named.pid";
   session-keyfile "/run/named/session.key";
-<%- end %>
