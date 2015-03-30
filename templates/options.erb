@@ -41,6 +41,11 @@
   dnssec-enable no;
   dnssec-validation no;
 <%- end -%>
+<%- if !Array(scope['::bind::options'].empty?) -%>
+  <%- scope['::bind::options'].each do |option| -%>
+    <%= option %>;
+  <%- end -%>
+<%- end -%>
   bindkeys-file "/etc/named.iscdlv.key";
   managed-keys-directory "/var/named/dynamic";
   pid-file "/run/named/named.pid";
