@@ -28,6 +28,7 @@ class bind (
   $acl                          = {},
   $options                      = [],
   $version                      = false,
+  $logging_categories           = {},
 ) inherits ::bind::params {
 
   validate_array($v4_listen_addresses, $options)
