@@ -1,13 +1,13 @@
   type slave;
   file "<%= @db_file %>";
   masters {
-  <%- Array(@servers).each do |server| -%>
+  <%- @servers.each do |server| -%>
     <%= server %>;
   <%- end -%>
   };
-  <%- if Array(@transfer_hosts).length > 0 -%>
+  <%- if @transfer_hosts.length > 0 -%>
   allow-transfer {
-  <%- Array(@transfer_hosts).each do |host| -%>
+  <%- @transfer_hosts.each do |host| -%>
     <%= host %>;
   <%- end -%>
   };

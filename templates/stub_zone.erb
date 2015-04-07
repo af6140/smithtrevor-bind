@@ -1,7 +1,7 @@
   type stub;
   file "<%= @db_file %>";
   masters {
-  <%- Array(@servers).each do |server| -%>
+  <%- @servers.each do |server| -%>
     <%= server %>;
   <%- end -%>
   };

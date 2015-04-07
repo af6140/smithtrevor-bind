@@ -1,4 +1,4 @@
-<%- if !String(@listen_port).empty? && !Array(@listen_addresses).empty? -%>
+<%- if !@listen_port.empty? && !@listen_addresses.empty? -%>
   listen-on port <%= @listen_port %> { 
   <%- Array(@listen_addresses).each do |address| -%>
     <%= address %>;
@@ -41,7 +41,7 @@
   dnssec-enable no;
   dnssec-validation no;
 <%- end -%>
-<%- if !Array(scope['::bind::options']).empty? -%>
+<%- if !scope['::bind::options'].empty? -%>
   <%- scope['::bind::options'].each do |option| -%>
   <%= option %>;
   <%- end -%>
