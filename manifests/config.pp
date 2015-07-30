@@ -12,7 +12,6 @@ class bind::config {
   $allow_query = $::bind::allow_query
   $allow_recursion = $::bind::allow_recursion
   $acl = $::bind::acl
-  $listen_port = $::bind::listen_port
   $enable_dnssec = $::bind::enable_dnssec
 
   Concat {
