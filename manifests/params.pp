@@ -26,7 +26,7 @@ class bind::params {
         '7'     => '/usr/bin/systemctl reload named',
         default => '/sbin/service named reload'
       }
-      $named_local = "${named_conf}/named.local.conf"
+      $named_local_conf = "${named_conf}/named.local.conf"
     }
     default: {
       fail("${::operatingsystem} not supported")
