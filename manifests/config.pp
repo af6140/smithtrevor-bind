@@ -13,6 +13,7 @@ class bind::config {
   $allow_recursion = $::bind::allow_recursion
   $acl = $::bind::acl
   $enable_dnssec = $::bind::enable_dnssec
+  $log_categories = $::bind::log_categories
 
   Concat {
     ensure_newline => true,
