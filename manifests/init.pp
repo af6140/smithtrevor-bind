@@ -15,7 +15,6 @@ class bind (
   $config_dir                   = $::bind::params::config_dir,
   $named_conf                   = $::bind::params::named_conf,
   $named_local_conf             = $::bind::params::named_local_conf,
-  $enable_root_hints            = true,
   $enable_views                 = false,
   $enable_recursion             = false,
   $enable_root_hints            = true,
