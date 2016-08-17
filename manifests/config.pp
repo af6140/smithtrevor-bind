@@ -114,12 +114,13 @@ class bind::config {
     content => template('bind/root_hints.erb'),
   }
 
-  concat::fragment { 'include_views':
-    ensure  => $views_ensure,
-    order   => '98',
-    target  => $::bind::named_conf,
-    content => "include \"${::bind::config_dir}/views.conf\";",
-  }
+  ## temporary fix to deal with deprecation of the ensure parameter for the concat::fragment type
+  #concat::fragment { 'include_views':
+  #  ensure  => $views_ensure,
+  #  order   => '98',
+  #  target  => $::bind::named_conf,
+  #  content => "include \"${::bind::config_dir}/views.conf\";",
+  #}
 
   concat::fragment { 'default_includes':
     ensure  => present,
