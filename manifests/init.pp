@@ -18,7 +18,6 @@ class bind (
   $enable_root_hints            = true,
   $enable_views                 = false,
   $enable_recursion             = false,
-  $enable_root_hints            = true,
   $enable_dnssec                = false,
   $enable_default_debug_channel = true,
   $v4_listen_addresses          = ['127.0.0.1'],
